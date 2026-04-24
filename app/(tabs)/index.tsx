@@ -1,25 +1,19 @@
 import { Image } from 'expo-image';
+import { useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { FlatList, RefreshControl, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, RefreshControl, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { BookItem, getTrendingBooks } from '@/api/api';
 
 export default function HomeScreen() {
-  const [books, setBooks] = useState<any[]>([]);
+  const router = useRouter();
+  const [books, setBooks] = useState<BookItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
 
   const getBooks = async () => {
     try {
-      const response = await fetch('https://openlibrary.org/trending/daily.json');
-      const data = await response.json();
-
-      // Ambil 15 buku random
-      const shuffled = data.works.sort(() => 0.5 - Math.random());
-      const bookList = shuffled.slice(0, 15);
-      
-      // Log untuk debugging
-      console.log('Books:', bookList);
-      
+      const bookList = await getTrendingBooks();
       setBooks(bookList);
       setLoading(false);
     } catch (error) {
@@ -28,9 +22,9 @@ export default function HomeScreen() {
     }
   };
 
-  const onRefresh = () => {
+  const onRefresh = async () => {
     setRefreshing(true);
-    getBooks();
+    await getBooks();
     setRefreshing(false);
   };
 
@@ -42,7 +36,8 @@ export default function HomeScreen() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>Loading...</Text>
+          <ActivityIndicator size="large" color="#007AFF" />
+          <Text style={{ marginTop: 10 }}>Memuat data buku...</Text>
         </View>
       </SafeAreaView>
     );
@@ -64,23 +59,18 @@ export default function HomeScreen() {
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
           renderItem={({ item }) => {
-            // Coba ambil cover dari berbagai sumber
-            let coverUri = '';
-            
-            if (item.cover_id) {
-              coverUri = `https://covers.openlibrary.org/b/id/${item.cover_id}-M.jpg`;
-            } else if (item.cover_edition_key) {
-              coverUri = `https://covers.openlibrary.org/b/olid/${item.cover_edition_key}-M.jpg`;
-            } else if (item.key) {
-              // Fallback: gunakan work key
-              const workId = item.key.replace('/works/', '');
-              coverUri = `https://covers.openlibrary.org/w/olid/${workId}-M.jpg`;
-            } else {
-              coverUri = 'https://via.placeholder.com/150x225.png?text=No+Image';
-            }
-
             return (
-              <View style={{
+              <TouchableOpacity
+                onPress={() =>
+                  router.push({
+                    pathname: '/detail/detailbuku',
+                    params: {
+                      workKey: item.key,
+                      cover: item.cover,
+                    },
+                  })
+                }
+                style={{
                 flex: 1,
                 alignItems: 'center',
                 marginBottom: 15,
@@ -88,7 +78,7 @@ export default function HomeScreen() {
               }}>
                 <Image
                   source={{
-                    uri: coverUri,
+                    uri: item.cover,
                   }}
                   style={{
                     width: 150,
@@ -97,7 +87,7 @@ export default function HomeScreen() {
                     backgroundColor: '#f0f0f0',
                   }}
                   contentFit="cover"
-                  placeholder="https://via.placeholder.com/150x225.png?text=Loading"
+                  placeholder="https://covers.openlibrary.org/b/id/0-M.jpg"
                 />
                 <Text 
                   style={{ marginTop: 8, fontSize: 12, textAlign: 'center' }}
@@ -105,7 +95,7 @@ export default function HomeScreen() {
                 >
                   {item.title}
                 </Text>
-              </View>
+              </TouchableOpacity>
             );
           }}
         />
