@@ -1,4 +1,6 @@
 import { BookItem } from '@/api/api';
+import { Colors } from '@/constants/theme';
+import { useColorScheme } from '@/hooks/use-color-scheme';
 import { useFavoriteStore } from '@/store/favorite-store';
 import { Image } from 'expo-image';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -8,6 +10,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function FavoritesScreen() {
   const router = useRouter();
+  const colorScheme = useColorScheme();
+  const theme = Colors[colorScheme ?? 'light'];
   const favoriteBooks = useFavoriteStore((state) => state.favoriteBooks);
   const addFavoriteBook = useFavoriteStore((state) => state.addFavoriteBook);
   const removeFavoriteBook = useFavoriteStore((state) => state.removeFavoriteBook);
@@ -43,15 +47,15 @@ export default function FavoritesScreen() {
   }, [params.action, params.key, params.updatedAt, params.title, params.author, params.year, params.cover, addFavoriteBook, removeFavoriteBook]);
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: theme.background }}>
       <View style={{ flex: 1, padding: 10 }}>
-        <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 10 }}>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 10, color: theme.text }}>
           Favorite Books
         </Text>
 
         {favoriteBooks.length === 0 ? (
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Belum ada buku favorit.</Text>
+            <Text style={{ color: theme.text }}>Belum ada buku favorit.</Text>
           </View>
         ) : (
           <FlatList
@@ -92,7 +96,7 @@ export default function FavoritesScreen() {
                     placeholder="https://covers.openlibrary.org/b/id/0-M.jpg"
                   />
                   <Text
-                    style={{ marginTop: 8, fontSize: 12, textAlign: 'center' }}
+                    style={{ marginTop: 8, fontSize: 12, textAlign: 'center', color: theme.text }}
                     numberOfLines={2}>
                     {item.title}
                   </Text>

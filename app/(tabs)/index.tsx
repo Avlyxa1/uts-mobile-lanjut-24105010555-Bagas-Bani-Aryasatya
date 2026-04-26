@@ -4,9 +4,13 @@ import { useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, RefreshControl, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BookItem, getTrendingBooks } from '@/api/api';
+import { Colors } from '@/constants/theme';
+import { useColorScheme } from '@/hooks/use-color-scheme';
 
 export default function HomeScreen() {
   const router = useRouter();
+  const colorScheme = useColorScheme();
+  const theme = Colors[colorScheme ?? 'light'];
   const [books, setBooks] = useState<BookItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -34,19 +38,19 @@ export default function HomeScreen() {
 
   if (loading) {
     return (
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: theme.background }}>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <ActivityIndicator size="large" color="#007AFF" />
-          <Text style={{ marginTop: 10 }}>Memuat data buku...</Text>
+          <Text style={{ marginTop: 10, color: theme.text }}>Memuat data buku...</Text>
         </View>
       </SafeAreaView>
     );
   }
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: theme.background }}>
       <View style={{ flex: 1, padding: 10 }}>
-        <Text style={{ fontSize: 20, fontWeight: "bold", marginBottom: 10 }}>
+        <Text style={{ fontSize: 20, fontWeight: "bold", marginBottom: 10, color: theme.text }}>
           Trending Books
         </Text>
 
@@ -89,8 +93,8 @@ export default function HomeScreen() {
                   contentFit="cover"
                   placeholder="https://covers.openlibrary.org/b/id/0-M.jpg"
                 />
-                <Text 
-                  style={{ marginTop: 8, fontSize: 12, textAlign: 'center' }}
+                <Text
+                  style={{ marginTop: 8, fontSize: 12, textAlign: 'center', color: theme.text }}
                   numberOfLines={2}
                 >
                   {item.title}

@@ -83,3 +83,27 @@ export async function getBookDetail(workKey: string): Promise<BookDetail> {
     pages,
   };
 }
+
+export async function searchBooks(keyword: string): Promise<BookItem[]> {
+  const response = await fetch(
+    `https://openlibrary.org/search.json?q=${encodeURIComponent(keyword)}&limit=20`
+  );
+  const data = await response.json();
+  const docs = data?.docs ?? [];
+
+  return docs.map((item: any) => {
+    const workKey = item?.key ?? '';
+    const coverId = item?.cover_i;
+    const cover = coverId
+      ? `https://covers.openlibrary.org/b/id/${coverId}-M.jpg`
+      : 'https://covers.openlibrary.org/b/id/0-M.jpg';
+
+    return {
+      key: workKey,
+      title: item?.title ?? 'Judul tidak ditemukan',
+      author: item?.author_name?.[0] ?? 'Penulis tidak ditemukan',
+      year: item?.first_publish_year ? String(item.first_publish_year) : '-',
+      cover,
+    };
+  });
+}

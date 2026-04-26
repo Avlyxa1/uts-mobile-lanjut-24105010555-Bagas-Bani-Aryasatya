@@ -31,10 +31,10 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="searchbar"
+        name="searchscreen"
         options={{
           title: 'Search',
-          tabBarIcon: ({ color }) => <Ionicons name="search" size={24} color="black" />,
+          tabBarIcon: ({ color }) => <Ionicons name="search" size={24} color={color} />,
         }}
       />
       <Tabs.Screen

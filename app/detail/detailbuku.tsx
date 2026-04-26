@@ -1,4 +1,6 @@
 import { BookDetail, getBookDetail } from '@/api/api';
+import { Colors } from '@/constants/theme';
+import { useColorScheme } from '@/hooks/use-color-scheme';
 import { useFavoriteStore } from '@/store/favorite-store';
 import { Image } from 'expo-image';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -8,6 +10,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function DetailBukuScreen() {
   const router = useRouter();
+  const colorScheme = useColorScheme();
+  const theme = Colors[colorScheme ?? 'light'];
   const params = useLocalSearchParams<{
     workKey?: string;
     cover?: string;
@@ -69,7 +73,7 @@ export default function DetailBukuScreen() {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: theme.background }}>
       <View style={{ flex: 1, padding: 20 }}>
         <View style={{ alignItems: 'center', marginBottom: 20 }}>
           <Image
@@ -82,23 +86,28 @@ export default function DetailBukuScreen() {
         {loading ? (
           <View style={{ alignItems: 'center' }}>
             <ActivityIndicator size="small" color="#007AFF" />
-            <Text style={{ marginTop: 8 }}>Memuat detail buku...</Text>
+            <Text style={{ marginTop: 8, color: theme.text }}>Memuat detail buku...</Text>
           </View>
         ) : (
-          <View style={{ backgroundColor: '#f7f7f7', padding: 14, borderRadius: 10 }}>
-            <Text style={{ fontSize: 16, fontWeight: '600', marginBottom: 8 }}>
+          <View
+            style={{
+              backgroundColor: colorScheme === 'dark' ? '#1f2326' : '#f7f7f7',
+              padding: 14,
+              borderRadius: 10,
+            }}>
+            <Text style={{ fontSize: 16, fontWeight: '600', marginBottom: 8, color: theme.text }}>
               Judul Buku: {book?.title ?? 'Judul tidak ditemukan'}
             </Text>
-            <Text style={{ fontSize: 14, color: '#444', marginBottom: 6 }}>
+            <Text style={{ fontSize: 14, color: theme.text, marginBottom: 6 }}>
               Penulis: {book?.author ?? 'Penulis tidak ditemukan'}
             </Text>
-            <Text style={{ fontSize: 14, color: '#444', marginBottom: 6 }}>
+            <Text style={{ fontSize: 14, color: theme.text, marginBottom: 6 }}>
               Penerbit: {book?.publisher ?? 'Penerbit tidak ditemukan'}
             </Text>
-            <Text style={{ fontSize: 14, color: '#444', marginBottom: 6 }}>
+            <Text style={{ fontSize: 14, color: theme.text, marginBottom: 6 }}>
               Tahun terbit: {book?.year ?? '-'}
             </Text>
-            <Text style={{ fontSize: 14, color: '#444' }}>
+            <Text style={{ fontSize: 14, color: theme.text }}>
               Jumlah halaman: {book?.pages ?? '-'}
             </Text>
           </View>

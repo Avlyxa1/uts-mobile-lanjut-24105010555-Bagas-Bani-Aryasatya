@@ -1,50 +1,93 @@
-# Welcome to your Expo app 👋
+# Project UTS Pemrograman Mobile Lanjut
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Dibuat Oleh
+- Bagas Bani Aryasatya
+- NIM: 2410501055
 
-## Get started
+## Tema
+Tema yang dipilih adalah **Tema C (BookShelf)**.
 
-1. Install dependencies
+## Tech Stack + Versi
+- Node.js (disarankan versi LTS terbaru)
+- Expo `~54.0.33`
+- Expo Router `~6.0.23`
+- React `19.1.0`
+- React Native `0.81.5`
+- TypeScript `~5.9.2`
+- Zustand `^5.0.12`
 
+## Cara Install dan Menjalankan
+1. Clone repository
+   ```bash
+   git clone <url-repository>
+   cd BookShelf
+   ```
+2. Install dependencies
    ```bash
    npm install
    ```
-
-2. Start the app
-
+3. Jalankan project
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+## Screenshot Aplikasi (9 Screen)
+- `screenshots/screen-home.png`
+- `screenshots/screen-search-def.png`
+- `screenshots/screen-search-val.png`
+- `screenshots/search-screen-success.png`
+- `screenshots/screen-detail.png`
+- `screenshots/screen-favorite-nf.png`
+- `screenshots/screen-favorite-fav.png`
+- `screenshots/screen-favorit-detail.png`
+- `screenshots/screen-about.png`
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Home Screen
+![Home Screen](./screenshots/screen-home.png)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Search Screen (Default)
+![Search Screen Default](./screenshots/screen-search-def.png)
 
-## Get a fresh project
+### Search Screen (With Query)
+![Search Screen With Query](./screenshots/screen-search-val.png)
 
-When you're ready, run:
+### Search Screen (Success Result)
+![Search Screen Success](./screenshots/search-screen-success.png)
 
-```bash
-npm run reset-project
-```
+### Detail Screen
+![Detail Screen](./screenshots/screen-detail.png)
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Favorites Screen (Kosong)
+![Favorites Screen Empty](./screenshots/screen-favorite-nf.png)
 
-## Learn more
+### Favorites Screen (Ada Data)
+![Favorites Screen With Data](./screenshots/screen-favorite-fav.png)
 
-To learn more about developing your project with Expo, look at the following resources:
+### Favorite Detail Screen
+![Favorite Detail Screen](./screenshots/screen-favorit-detail.png)
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### About Screen
+![About Screen](./screenshots/screen-about.png)
 
-## Join the community
+## Link Video Demo
+Isi link video demo di bawah ini:
 
-Join our community of developers creating universal apps.
+- [Demo Aplikasi BookShelf](PASTE_LINK_VIDEO_DEMO_DI_SINI)
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Justifikasi State Management
+Project ini menggunakan **Zustand** sebagai state management karena kebutuhan aplikasi BookShelf cenderung berfokus pada data koleksi buku, status baca, dan proses pencarian/filter yang dipakai lintas screen. Zustand dipilih karena API-nya sederhana, ringan, dan tidak memerlukan banyak boilerplate dibandingkan pendekatan global state lain. Dalam konteks pembelajaran mobile, Zustand membantu memisahkan logic state dari komponen UI sehingga struktur kode lebih mudah dirawat ketika fitur bertambah. Selain itu, integrasinya dengan React Native cukup langsung tanpa konfigurasi kompleks. Untuk skala UTS, pemilihan ini sudah seimbang antara kemudahan implementasi, performa yang baik, dan keterbacaan kode.
+
+## Referensi
+- [Expo Documentation](https://docs.expo.dev/)
+- [Expo Router Documentation](https://docs.expo.dev/router/introduction/)
+- [React Native Documentation](https://reactnative.dev/docs/getting-started)
+- [React Documentation](https://react.dev/)
+- [Zustand Documentation](https://docs.pmnd.rs/zustand/getting-started/introduction)
+- [Stack Overflow](https://stackoverflow.com/)
+- Blog pengembangan React Native (artikel terkait implementasi UI, navigasi, dan state management)
+- Video tutorial React Native/Expo di YouTube (materi dasar hingga integrasi fitur)
+
+## Refleksi
+Melalui pengerjaan project BookShelf ini, saya belajar bahwa membangun aplikasi mobile bukan hanya soal membuat tampilan yang menarik, tetapi juga bagaimana menyusun alur data dan struktur kode agar aplikasi tetap rapi saat berkembang. Di awal, saya fokus pada pembuatan UI per screen, lalu mulai memahami pentingnya navigasi yang konsisten antar halaman agar pengalaman pengguna lebih nyaman. Saya juga mendapatkan pemahaman baru tentang cara mengelola state global menggunakan Zustand, terutama saat beberapa screen membutuhkan data yang sama. Dari sini saya belajar bahwa pemilihan state management harus menyesuaikan kebutuhan aplikasi, tidak selalu harus yang paling kompleks.
+
+Selain sisi teknis, saya juga belajar proses debugging ketika muncul error pada bundling, path asset, dan integrasi komponen. Proses tersebut melatih ketelitian saya dalam membaca pesan error dan mencari akar masalah secara bertahap. Saya semakin paham pentingnya dokumentasi resmi sebagai acuan utama sebelum mencoba solusi lain dari forum atau tutorial. Sebagai mahasiswa yang baru mendesain aplikasi seperti ini, saya merasa project ini menambah kepercayaan diri saya dalam mengembangkan aplikasi mobile secara end-to-end, mulai dari perencanaan fitur, implementasi, pengujian, sampai dokumentasi hasil kerja.
