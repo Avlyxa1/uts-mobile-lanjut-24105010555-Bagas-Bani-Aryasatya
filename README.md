@@ -1,25 +1,26 @@
 # Project UTS Pemrograman Mobile Lanjut
 
 ## Dibuat Oleh
-- Bagas Bani Aryasatya
+- Nama: Bagas Bani Aryasatya
 - NIM: 2410501055
 
 ## Tema
 Tema yang dipilih adalah **Tema C (BookShelf)**.
 
 ## Tech Stack + Versi
-- Node.js (disarankan versi LTS terbaru)
-- Expo `~54.0.33`
-- Expo Router `~6.0.23`
+- Node.js `v24.14.1`
+- Expo `54.0.33`
+- Expo Router `6.0.23`
 - React `19.1.0`
 - React Native `0.81.5`
-- TypeScript `~5.9.2`
+- TypeScript `5.9.2`
 - Zustand `^5.0.12`
 
 ## Cara Install dan Menjalankan
 1. Clone repository
    ```bash
-   git clone <url-repository>
+   git clone https://github.com/Avlyxa1/uts-mobile-lanjut-24105010555-Bagas-Bani-Aryasatya/tree/master
+
    cd BookShelf
    ```
 2. Install dependencies
@@ -72,22 +73,32 @@ Tema yang dipilih adalah **Tema C (BookShelf)**.
 ## Link Video Demo
 Isi link video demo di bawah ini:
 
-- [Demo Aplikasi BookShelf](PASTE_LINK_VIDEO_DEMO_DI_SINI)
+- [Link Google Drive](PASTE_LINK_VIDEO_DEMO_DI_SINI)
 
 ## Justifikasi State Management
-Project ini menggunakan **Zustand** sebagai state management karena kebutuhan aplikasi BookShelf cenderung berfokus pada data koleksi buku, status baca, dan proses pencarian/filter yang dipakai lintas screen. Zustand dipilih karena API-nya sederhana, ringan, dan tidak memerlukan banyak boilerplate dibandingkan pendekatan global state lain. Dalam konteks pembelajaran mobile, Zustand membantu memisahkan logic state dari komponen UI sehingga struktur kode lebih mudah dirawat ketika fitur bertambah. Selain itu, integrasinya dengan React Native cukup langsung tanpa konfigurasi kompleks. Untuk skala UTS, pemilihan ini sudah seimbang antara kemudahan implementasi, performa yang baik, dan keterbacaan kode.
+Project ini menggunakan **Zustand** karena API-nya sederhana, ringan, dan tidak memerlukan banyak boilerplate dibandingkan pendekatan global state lain. Zustand juga membantu memisahkan logic state dari komponen UI sehingga struktur kode lebih mudah dirawat ketika fitur bertambah. Selain itu, penggunaannya dengan React Native cukup mudah tanpa konfigurasi kompleks.
 
 ## Referensi
-- [Expo Documentation](https://docs.expo.dev/)
-- [Expo Router Documentation](https://docs.expo.dev/router/introduction/)
-- [React Native Documentation](https://reactnative.dev/docs/getting-started)
-- [React Documentation](https://react.dev/)
-- [Zustand Documentation](https://docs.pmnd.rs/zustand/getting-started/introduction)
-- [Stack Overflow](https://stackoverflow.com/)
-- Blog pengembangan React Native (artikel terkait implementasi UI, navigasi, dan state management)
-- Video tutorial React Native/Expo di YouTube (materi dasar hingga integrasi fitur)
+- [Dokumentasi Expo](https://docs.expo.dev/)
+- [Dokumentasi Expo Router](https://docs.expo.dev/router/introduction/)
+- [Dokumentasi React Native](https://reactnative.dev/docs/getting-started)
+- [Dokumentasi TypeScript](https://www.typescriptlang.org/docs/)
+- [Bottom Tab Navigator](https://reactnavigation.org/docs/bottom-tab-navigator/)
+- [Dokumentasi React](https://react.dev/)
+- [Dokumentasi tsconfig](https://www.typescriptlang.org/tsconfig/#paths)
+- [Import Icon Tombol](https://oneuptime.com/blog/post/2026-01-15-react-native-path-aliases/view?utm_source=chatgpt.com)
+- [Dokumentasi Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
+- [Referensi Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- [Referensi Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- [Context API](https://www.freecodecamp.org/news/react-context-api-explained-with-examples/)
+- [API Open Library](https://openlibrary.org/developers/api)
+- [Dokumentasi Search API](https://openlibrary.org/dev/docs/api/search)
+- [Blog pengembangan React Native](https://www.notjust.dev/blog/2022-11-18-build-a-books-app)
+- [Video tutorial React Native/Expo](https://www.youtube.com/watch?v=H8qOotIAaEA)
 
 ## Refleksi
-Melalui pengerjaan project BookShelf ini, saya belajar bahwa membangun aplikasi mobile bukan hanya soal membuat tampilan yang menarik, tetapi juga bagaimana menyusun alur data dan struktur kode agar aplikasi tetap rapi saat berkembang. Di awal, saya fokus pada pembuatan UI per screen, lalu mulai memahami pentingnya navigasi yang konsisten antar halaman agar pengalaman pengguna lebih nyaman. Saya juga mendapatkan pemahaman baru tentang cara mengelola state global menggunakan Zustand, terutama saat beberapa screen membutuhkan data yang sama. Dari sini saya belajar bahwa pemilihan state management harus menyesuaikan kebutuhan aplikasi, tidak selalu harus yang paling kompleks.
+Dengan adanya project ini, saya mendapatkan banyak pengalaman dan wawasan baru. Selama proses pengerjaan, saya mulai lebih memahami cara kerja React dan React Native, terutama dalam membuat komponen/metode yang bisa digunakan berulang kali sehingga proses pengembangan terasa lebih efisien dan terstruktur. Saya juga semakin memahami cara agar perpindahan antar screen berjalan lebih konsisten dan lancar. Selain itu, saya belajar bagaimana menyusun struktur kode yang lebih rapi agar aplikasi tetap mudah dikelola ketika fitur terus berkembang.
 
-Selain sisi teknis, saya juga belajar proses debugging ketika muncul error pada bundling, path asset, dan integrasi komponen. Proses tersebut melatih ketelitian saya dalam membaca pesan error dan mencari akar masalah secara bertahap. Saya semakin paham pentingnya dokumentasi resmi sebagai acuan utama sebelum mencoba solusi lain dari forum atau tutorial. Sebagai mahasiswa yang baru mendesain aplikasi seperti ini, saya merasa project ini menambah kepercayaan diri saya dalam mengembangkan aplikasi mobile secara end-to-end, mulai dari perencanaan fitur, implementasi, pengujian, sampai dokumentasi hasil kerja.
+Saya juga belajar pentingnya pengelolaan data agar tetap konsisten di seluruh aplikasi. Zustand digunakan untuk mengatur state global sehingga data dapat diakses dan diperbarui oleh beberapa screen dengan lebih mudah. TypeScript sendiri sudah pernah saya gunakan sebelumnya, namun melalui project ini saya menjadi lebih memahami tentang bahasa pemrograman tersebut mulai dari penerapan tipe data, pembuatan user interface (UI), dan cara penulisan kode yang lebih terstruktur sehingga potensi kesalahan dapat dikurangi. Selain itu, melalui project ini saya menjadi lebih paham dalam proses pemanggilan API melalui fetch data, pengolahan response, serta menampilkan data secara dinamis sesuai kebutuhan aplikasi.
+
+Secara keseluruhan, project ini memberikan pemahaman dan pengalaman yang lebih luas mengenai proses pengembangan aplikasi mobile, meningkatkan kemampuan teknis, serta menambahkan pengalaman saya untuk mengembangkan aplikasi yang lebih baik ke depannya.
