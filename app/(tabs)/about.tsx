@@ -36,6 +36,22 @@ export default function AboutScreen() {
         }}>
           NIM: 2410501055
         </Text>
+        <Text style={{
+          fontSize: 16,
+          color: '#666',
+          textAlign: 'center',
+          marginTop: 5
+        }}>
+          Tema: Bookshelf
+        </Text>
+        <Text style={{
+          fontSize: 16,
+          color: '#666',
+          textAlign: 'center',
+          marginTop: 5
+        }}>
+          Credit API: api.openlibrary.org
+        </Text>
       </View>
     </SafeAreaView>
   );
