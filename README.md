@@ -73,7 +73,7 @@ Tema yang dipilih adalah **Tema C (BookShelf)**.
 ## Link Video Demo
 Isi link video demo di bawah ini:
 
-- [Link Google Drive](PASTE_LINK_VIDEO_DEMO_DI_SINI)
+- [Link Google Drive](https://drive.google.com/file/d/1Ivhs7XrD1cS2zypHmQf-AY2t1Z4Geg_M/view?usp=sharing)
 
 ## Justifikasi State Management
 Project ini menggunakan **Zustand** karena API-nya sederhana, ringan, dan tidak memerlukan banyak boilerplate dibandingkan pendekatan global state lain. Zustand juga membantu memisahkan logic state dari komponen UI sehingga struktur kode lebih mudah dirawat ketika fitur bertambah. Selain itu, penggunaannya dengan React Native cukup mudah tanpa konfigurasi kompleks.
