@@ -14,7 +14,7 @@ Tema yang dipilih adalah **Tema C (BookShelf)**.
 - React `19.1.0`
 - React Native `0.81.5`
 - TypeScript `5.9.2`
-- Zustand `^5.0.12`
+- Zustand `5.0.12`
 
 ## Cara Install dan Menjalankan
 1. Clone repository
@@ -44,31 +44,31 @@ Tema yang dipilih adalah **Tema C (BookShelf)**.
 - `screenshots/screen-about.png`
 
 ### Home Screen
-![Home Screen](./screenshots/screen-home.png)
+<img src="./screenshots/screen-home.png" width="250"/>
 
 ### Search Screen (Default)
-![Search Screen Default](./screenshots/screen-search-def.png)
+<img src="./screenshots/screen-search-def.png" width="250"/>
 
 ### Search Screen (With Query)
-![Search Screen With Query](./screenshots/screen-search-val.png)
+<img src="./screenshots/screen-search-val.png" width="250"/>
 
 ### Search Screen (Success Result)
-![Search Screen Success](./screenshots/search-screen-success.png)
+<img src="./screenshots/search-screen-success.png" width="250"/>
 
 ### Detail Screen
-![Detail Screen](./screenshots/screen-detail.png)
+<img src="./screenshots/screen-detail.png" width="250"/>
 
 ### Favorites Screen (Kosong)
-![Favorites Screen Empty](./screenshots/screen-favorite-nf.png)
+<img src="./screenshots/screen-favorite-nf.png" width="250"/>
 
 ### Favorites Screen (Ada Data)
-![Favorites Screen With Data](./screenshots/screen-favorite-fav.png)
+<img src="./screenshots/screen-favorite-fav.png" width="250"/>
 
 ### Favorite Detail Screen
-![Favorite Detail Screen](./screenshots/screen-favorit-detail.png)
+<img src="./screenshots/screen-favorit-detail.png" width="250"/>
 
 ### About Screen
-![About Screen](./screenshots/screen-about.png)
+<img src="./screenshots/screen-about.png" width="250"/>
 
 ## Link Video Demo
 Isi link video demo di bawah ini:
